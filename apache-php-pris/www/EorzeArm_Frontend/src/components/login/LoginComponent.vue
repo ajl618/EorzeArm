@@ -1,9 +1,11 @@
 <template>
 
-  <div class="flex items-center justify-center h-screen"> <!-- Clases para centrar el contenedor en la pantalla -->
-    <div class='flex justify-center items-center'> <!-- Este contenedor podría ser redundante, considera eliminarlo si no es necesario -->
-      <div class="mx-5 my-5 max-w-md z-50"> <!-- Quité 'w-full' para permitir el centrado horizontal -->
-        <form @submit.prevent="handleSubmit" class="bg-white shadow-md rounded-3xl p-8" autocomplete="on">
+  <div class="flex items-center justify-center h-full">
+    <div class='flex justify-center items-center'>
+      <div class="max-w-md z-80">
+
+        <img src="@/assets/pictures/dra.png" alt="EorzeArm" class="w-[200px] h-[200px] ml-[180px]"/>
+        <form @submit.prevent="handleSubmit" class="bg-white shadow-md rounded-3xl p-8 w-[380px]" autocomplete="on">
    
           <div class="flex justify-center mb-4">
             <div class="text-[30px] text-purple-800">
@@ -11,12 +13,12 @@
             </div>
           </div>
 
-          <div class="mb-4">
-            <input v-model="username" name = "username" id = "username" type="text" placeholder="Usuario" required autocomplete="username" />
+          <div class="mb-4 text-purple-900">
+            <input v-model="username" name = "username" id = "username" type="text" placeholder="Usuario" required  class="w-full"/>
           </div>
 
-          <div class="mb-6">
-            <input v-model="password" name = "password" id="password" type="password" placeholder="Contraseña" required autocomplete="current-password"/>
+          <div class="mb-6 text-purple-900">
+            <input v-model="password" name = "password" id="password" type="password" placeholder="Contraseña" required class="w-full"/>
           </div>
 
           <div class="flex items-center justify-between mt-3 bg-purple-950 rounded-lg">
@@ -33,6 +35,14 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+
+const username = ref('')
+const password = ref('')
+
+
 
 
 </script>

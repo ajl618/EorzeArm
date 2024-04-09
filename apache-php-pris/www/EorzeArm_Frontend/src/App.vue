@@ -24,9 +24,6 @@ const loading = computed(() => appStore.loading);
   </template>
   
   <style scoped>
-  .w-full.h-full {
-    min-height: 100vh;
-    width: 100vw;
-  }
+
   </style>
   
