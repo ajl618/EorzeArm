@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      DOMAINS: '
+        local.atlasgo.com -> http://apache-php-atlasgo:80,
+        local-backend.atlas.com -> http://apache-php-atlasgo:80
+      '
+      KEEPALIVE_TIMEOUT: 6000
+      SERVER_NAMES_HASH_MAX_SIZE: 512
+      SERVER_NAMES_HASH_BUCKET_SIZE: 32
+      CLIENT_MAX_BODY_SIZE: 0
+      PROXY_CONNECT_TIMEOUT: 6000
+      PROXY_SEND_TIMEOUT: 6000
+      PROXY_READ_TIMEOUT: 6000
+      STAGE: 'local'
+      # STAGE: 'staging'
+      # STAGE: 'production' # Don't use production until staging works
+    volumes:
+      - ./https-portal-data:/var/lib/https-portal
+    networks:
+      - local-network
+  apache-php-atlasgo:
+    build: './apache-php-atlasgo/'
+    container_name: apache-php-atlasgo
+    volumes:
+      - ./apache-php-atlasgo/www:/var/www/html
+      - ./apache-php-atlasgo/apache/virtualhosts:/etc/apache2/sites-enabled/
+      - ./https-portal-data:/etc/apache2/certs/
+    networks:
+      - local-network
+    command:
+      #- service supervisor start
+      - apache2-foreground
+networks:
+  local-network:
+    external: true
