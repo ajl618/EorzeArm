@@ -26,6 +26,11 @@
               Entrar
             </button>
           </div>
+
+          <div class="text-purple-600 mt-4">
+            ¿No tienes cuenta?  <router-link to="/registrarse" class="text-purple-900 font-bold">Regístrate</router-link>
+          </div>
+
         </form>
  
       </div>
