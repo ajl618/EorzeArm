@@ -11,8 +11,12 @@ api.interceptors.request.use(
   (config) => {
     const authStore = useAuthStore();
     const token = authStore.getAccessToken();
+
     if (token) {
-      config.headers['access-token'] = token;
+      // Modificación para incluir el token de acceso según lo espera Laravel
+      config.headers['Authorization'] = `Bearer ${token}`;
+
+      // Faltaria el refresh token
     }
     return config;
   },

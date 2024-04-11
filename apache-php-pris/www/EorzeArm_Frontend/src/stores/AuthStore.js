@@ -43,10 +43,11 @@ export const useAuthStore = defineStore({
     const storedCredentails = this.getCredentials();
     this.credentials = storedCredentails;
   },
-  login(email, password) {
+  login(data) {
     this.logout();
 
-    return ApiBackend.post('login/login', { usuario: email, contrasenia: password, version_app: version }).then(res => {
+    return ApiBackend.post('/login', data).then(res => {
+      localStorage.setItem('auth_token', res.token);
       this.setAccessToken(res.token);
       this.enableRefreshTokenHandler();
     }).catch(err => {

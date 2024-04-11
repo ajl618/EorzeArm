@@ -8,12 +8,21 @@ export const useUserControllerStore = defineStore({
   state: () => ({
   }),
   actions: {
-    create(data) {
-        return ApiBackend.post('/user' , data).then(response => {
+    create(data) 
+    {
+        return ApiBackend.post('/registrar' , data).then(response => {
             return response;
         }).catch(error => {
             return Promise.reject(error);
         })
-    }
+    },
+    user(){
+      return ApiBackend.get('/user').then(response => {
+        console.log(response);
+        return response;
+    }).catch(error => {
+        return Promise.reject(error);
+    })
+    },
   }
 })

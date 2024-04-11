@@ -65,5 +65,18 @@
 
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import { useUserControllerStore } from '@/stores/UserControllerStore.js'
+
+const userControllerStore = useUserControllerStore()
+
+function dataUser()
+{
+    userControllerStore.user();
+}
+
+
+dataUser();
+</script>
 <style scoped></style>
