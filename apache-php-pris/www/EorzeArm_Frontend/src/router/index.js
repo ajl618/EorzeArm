@@ -20,9 +20,27 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../components/personaje/DashboardComponent.vue')
+      component: () => import('../views/DashboardPage.vue'),
+      meta: { requiresAuth: true }
     }
   ]
 })
+
+/**
+ * Esta función se ejecuta cada vez que se navega a una nueva ruta.
+ * Se utiliza para verificar si la ruta requiere autenticación y si el usuario está autenticado.
+ * Si la ruta requiere autenticación y el usuario no está autenticado, redirige al usuario a la página de inicio.
+ * De lo contrario, permite al usuario continuar con la ruta prevista.
+ */
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = localStorage.getItem('auth_token');  // Aquí verifica si el usuario está autenticado
+
+  if (requiresAuth && !isAuthenticated) {
+    next('/');  // Redirige al usuario a la página principal si no está autenticado
+  } else {
+    next();  // De lo contrario, sigue con la ruta prevista
+  }
+});
 
 export default router

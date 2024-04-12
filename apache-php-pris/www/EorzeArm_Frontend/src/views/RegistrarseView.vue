@@ -35,18 +35,19 @@
           <div class="mb-4 text-purple-900 border-2 border-purple-200 rounded-lg">
             <select v-model="clase" name="clase" id="clase" required class="w-full rounded-lg">
               <option value="" disabled selected>Clase del personaje</option>
-              <option value="Gladiator">Gladiator</option>
-              <option value="Pugilist">Pugilist</option>
-              <option value="Marauder">Marauder</option>
-              <option value="Lancer">Lancer</option>
-              <option value="Archer">Archer</option>
-              <option value="Conjurer">Conjurer</option>
-              <option value="Thaumaturge">Thaumaturge</option>
-              <option value="Arcanist">Arcanist</option>
-              <option value="Dark Knight">Dark Knight</option>
+              <option value="Warrior">Warrior</option>
+              <option value="Monk">Monk</option>
+              <option value="Bard">Bard</option>
+              <option value="Dragoon">Dragoon</option>
+              <option value="Black_Mage">Black Mage</option> 
+              <option value="Machinist">Machinist</option>
+              <option value="Ninja">Ninja</option>
+              <option value="Paladin">Paladin</option>
+              <option value="Dark_Knight">Dark Knight</option>
               <option value="Astrologian">Astrologian</option>
-              <option value="Samurai">Samurai</option>
-              <option value="Red Mage">Red Mage</option>
+              <option value="Summoner">Summoner</option>
+              <option value="Scholar">Scholar</option>
+              <option value="White_Mage">White Mage</option>
               <option value="Gunbreaker">Gunbreaker</option>
               <option value="Dancer">Dancer</option>
             </select>

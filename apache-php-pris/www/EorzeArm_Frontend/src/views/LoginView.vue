@@ -47,11 +47,11 @@ import { useRouter } from 'vue-router'
 import { useAppStore } from '@/stores/AppStore.js'
 import { useAuthStore } from '@/stores/AuthStore.js'
 
-const email = ref('')
-const password = ref('')
+const email = ref('');
+const password = ref('');
 
 const router = useRouter();
-const appStore = useAppStore()
+const appStore = useAppStore();
 const authstore = useAuthStore();
 
 function login() {
