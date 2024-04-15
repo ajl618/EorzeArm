@@ -16,5 +16,16 @@ export const useApiCollectControllerStore = defineStore({
             return Promise.reject(error);
         })
     },
+    getItem(data)
+    {
+      let nombre = data.name;
+      let clase = data.clase;
+
+      return ApiCollectService.get('/' + clase + '?name_en_cont=' + nombre).then(response => {
+        return response;
+    }).catch(error => {
+        return Promise.reject(error);
+    })
+    },
   }
 })

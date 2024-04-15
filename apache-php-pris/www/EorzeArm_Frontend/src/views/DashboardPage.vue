@@ -21,120 +21,34 @@
                 <!-- Posicionamiento de elementos en las baldas -->
                 <!-- Balda 1 -->
                 <div class="absolute w-full top-[10%] flex justify-around">
-                    <!-- Repetir este div para cada elemento en la balda -->
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
+                    <div v-for="(item, index) in items.slice(0, 4)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
+                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <!-- 3 divs adicionales para los elementos restantes -->
                 </div>
 
                 <!-- Balda 2 -->
                 <div class="absolute w-full top-[28%] flex justify-around">
-                    <!-- Repetir este div para cada elemento en la balda -->
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
+                    <div v-for="(item, index) in items.slice(4, 8)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
+                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
                 </div>
 
                 <!-- Balda 3 -->
                 <div class="absolute w-full top-[45%] flex justify-around">
-                    <!-- Repetir este div para cada elemento en la balda -->
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
+                    <div v-for="(item, index) in items.slice(8, 12)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
+                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
                 </div>
 
                 <!-- Balda 4 -->
                 <div class="absolute w-full top-[65%] flex justify-around">
-                    <!-- Repetir este div para cada elemento en la balda -->
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
+                    <div v-for="(item, index) in items.slice(12, 16)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
+                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <div class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img src="https://ffxivcollect.com/images/fashions/large/1.png" alt="Armor Piece"
-                            class="w-full h-full object-cover">
-                        <button
-                            class="absolute top-0 right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white">X</button>
-                    </div>
-                    <!-- 3 divs adicionales para los elementos restantes -->
                 </div>
             </div>
 
@@ -156,17 +70,17 @@
                         <option value="hairstyles">Hairstyles</option>
                         <option value="armoires">Armoires</option>
                         <option value="fashions">Fashions</option>
-                        <option value="triad">Triad</option>
+                        <!-- <option value="triad">Triad</option> -->
                         <option value="records">Records</option>
-                        <option value="levels">Levels</option>
-                        <option value="relics">Relics</option>
-                        <option value="tomestones">Tomestones</option>
-                        <option value="characters">Characters</option>
+                        <!-- <option value="levels">Levels</option> -->
+                        <!-- <option value="relics">Relics</option> -->
+                        <!-- <option value="tomestones">Tomestones</option> -->
+                        <!-- <option value="characters">Characters</option> -->
                     </select>
                 </div>
 
                 <!-- Área de la Tabla -->
-                <div class="w-full flex-grow overflow-auto">
+                <div class="w-full flex-grow overflow-auto" v-if="table">
                     <DataTable :value="products" class="w-full" paginator :rows="50">
                         <!-- Columna para Imagen o Icono -->
                         <Column header="Imagen">
@@ -195,6 +109,47 @@
                 </div>
             </div>
         </div>
+
+        <Dialog v-model:visible="modal" modal header="Eliminar Usuario" :style="{ width: '50rem' }"
+            :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+            <template #header>
+                <div class="inline-flex align-items-center justify-content-center gap-2">
+                    <span class="font-bold white-space-nowrap">Información del item: {{ item_seleccionado.name }}</span>
+                </div>
+            </template>
+            
+            <div class="flex flex-col md:flex-row">
+                <!-- Contenedor para imágenes -->
+                <div class="flex-1 p-4">
+                    <div v-for="(value, key) in item_seleccionado" :key="key">
+                        <template v-if="key === 'image' || key === 'icon'">
+                            <p class="mb-2">
+                                <strong>{{ key }}:</strong>
+                            </p>
+                            <img :src="value" :alt="key" class="max-w-full h-auto mb-2">
+                        </template>
+                    </div>
+                    <div v-for="(value, key) in item_seleccionado" :key="key">
+                        <!-- Falta agregar el audio -->
+                    </div>
+                </div>
+                <!-- Contenedor para texto e información -->
+                <div class="flex-1 p-4">
+                    <div v-for="(value, key) in item_seleccionado" :key="key">
+                        <template v-if="key != 'image' && key != 'icon'">
+                            <strong>{{ key }}:</strong> {{ value }}<br>
+                        </template>
+                        <!-- <template v-else-if="typeof value !== 'string'">
+                            <strong>{{ key }}:</strong> <span>{{ JSON.stringify(value) }}</span><br>
+                        </template> -->
+                    </div>
+                </div>
+            </div>
+
+            <template #footer>
+            </template>
+        </Dialog>
+
     </div>
 </template>
 
@@ -207,6 +162,7 @@ import { useAuthStore } from '@/stores/AuthStore';
 import { useUserControllerStore } from '@/stores/UserControllerStore.js'
 import { useApiCollectControllerStore } from '@/stores/ApiCollectController.js'
 import DataTable from 'primevue/datatable';
+import Dialog from 'primevue/dialog';
 import Column from 'primevue/column';
 import Button from 'primevue/button';
 
@@ -219,9 +175,13 @@ const userCollectControllerStore = useApiCollectControllerStore();
 let clase = ref('');
 let name = ref('');
 let ready = ref(false);
+let table = ref(false);
+let modal = ref(false);
 
 const selectedClass = ref('');
 const products = ref([]);
+const items = ref([]);
+const item_seleccionado = ref('');
 
 function dataUser() {
 
@@ -229,6 +189,7 @@ function dataUser() {
         appStore.setIdle().then(function () {
             name.value = success.name;
             clase.value = success.clase;
+            items.value = success.items;
             ready.value = true;
         });
     }, error => {
@@ -272,15 +233,62 @@ function dataItems(item) {
 }
 
 function addItem(slotProps) {
-    /**
-     * Aqui tengo todos los datos de cada item
-     */
-    console.log(slotProps);
+    appStore.setBusy();
+
+    userControllerStore.setItem(slotProps, selectedClass).then(success => {
+        appStore.setIdle().then(function () {
+            appStore.showAlert('success', '', '¡Se ha agregado el elemento a tu colección!', 'Cerrar');
+            dataUser();
+        });
+    }, error => {
+        appStore.setIdle().then(function () {
+            appStore.showAlert('error', '!Error!', error.data.message, 'Cerrar');
+        });
+    });
+
+}
+
+function remove(item){
+    appStore.setBusy();
+
+    userControllerStore.remove(item).then(success => {
+        appStore.setIdle().then(function () {
+            appStore.showAlert('success', '', '¡Se ha eliminado el elemento de tu colección!', 'Cerrar');
+            dataUser();
+        });
+    }, error => {
+        appStore.setIdle().then(function () {
+            appStore.showAlert('error', '!Error!', error.data.message, 'Cerrar');
+        });
+    }); 
+}
+
+function openData(item){
+    
+    appStore.setBusy();
+
+    userCollectControllerStore.getItem(item).then(success => {
+        appStore.setIdle().then(function () {
+
+            item_seleccionado.value = success.results[0];
+            // console.log(item_seleccionado.value);
+
+        });
+    }, error => {
+        appStore.setIdle().then(function () {
+            appStore.showAlert('error', '!Error!', error.data.message, 'Cerrar');
+        });
+    });
+
+
+
+    modal.value = !modal.value;
 }
 
 watch(selectedClass, (newValue) => {
   if (newValue) {
     dataItems(newValue);
+    table = true;
   }
 });
 
