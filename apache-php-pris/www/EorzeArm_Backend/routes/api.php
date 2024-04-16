@@ -10,8 +10,10 @@ Route::post('/login', [UserController::class , 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user', function (Request $request) {
-        return $request->user();
+        return $request->user()->load('items');
     });
 
+    Route::post('/upload', [UserController::class , 'upload']);
+    Route::delete('/delete/{id}', [UserController::class , 'delete']);
     Route::post('/logout', [UserController::class , 'logout']);
 });

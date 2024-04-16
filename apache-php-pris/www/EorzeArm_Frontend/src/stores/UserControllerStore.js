@@ -24,5 +24,26 @@ export const useUserControllerStore = defineStore({
         return Promise.reject(error);
     })
     },
+    setItem(data, selectedClass)
+    {
+        let aux = {
+            data: data,
+            clase: selectedClass,
+        }
+
+        return ApiBackend.post('/upload', aux).then(response => {
+            return response;
+        }).catch(error => {
+            return Promise.reject(error);
+        })
+    },
+    remove(item)
+    {
+        return ApiBackend.delete('/delete/' + item.id).then(response => {
+            return response;
+        }).catch(error => {
+            return Promise.reject(error);
+        })
+    }
   }
 })
