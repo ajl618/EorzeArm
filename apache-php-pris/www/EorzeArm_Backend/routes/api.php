@@ -13,6 +13,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return $request->user()->load('items');
     });
 
+    Route::get('/server-status', [UserController::class , 'serverStatus']);
+
     Route::post('/upload', [UserController::class , 'upload']);
     Route::delete('/delete/{id}', [UserController::class , 'delete']);
     Route::post('/logout', [UserController::class , 'logout']);

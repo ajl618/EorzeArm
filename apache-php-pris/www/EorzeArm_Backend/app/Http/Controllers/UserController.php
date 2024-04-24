@@ -147,5 +147,18 @@ class UserController extends Controller
         ], 200);
     }
 
+    /**
+     * serverStatus
+     *
+     * Obtener el estado del servidor
+     */
+    public function serverStatus(){
+        $status = \DB::table('server_status_models')->get();
+
+        return response()->json([
+            'status' => $status
+        ], 200);
+    }
+
 }
 

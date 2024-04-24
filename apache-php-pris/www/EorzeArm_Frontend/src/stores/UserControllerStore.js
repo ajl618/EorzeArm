@@ -44,6 +44,14 @@ export const useUserControllerStore = defineStore({
         }).catch(error => {
             return Promise.reject(error);
         })
-    }
+    },
+    serverData()
+    {
+        return ApiBackend.get('/server-status').then(response => {
+            return response;
+        }).catch(error => {
+            return Promise.reject(error);
+        })
+    },
   }
 })
