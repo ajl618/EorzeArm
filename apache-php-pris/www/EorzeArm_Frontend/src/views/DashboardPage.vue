@@ -1,6 +1,19 @@
 <template>
     <div style="align-content: center;">
-        <div class="flex mb-2 justify-end mr-3 shadow-2xl">
+
+
+        <div class="flex mb-2 justify-between mr-3 shadow-2xl">
+
+            <div class="flex items-center ml-3 shadow-2xl">
+                <span class="text-[24px]">Usuario:</span><span class="ml-2 text-[24px] font-semibold text-purple-500">{{ name }}</span>
+            </div>
+
+            <button @click="openServerStatus()" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ">
+                <div class="flex text-black font-bold text-[12px] items-center">
+                    Server Status
+                </div>
+            </button>
+
             <button @click="logout()" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ">
                 <div class="flex text-black font-bold text-[12px] items-center">
                     <img src="@/assets/icons/ffxiv1.svg" alt="Logout" class="w-6 h-6 mr-2"> Logout
@@ -21,33 +34,45 @@
                 <!-- Posicionamiento de elementos en las baldas -->
                 <!-- Balda 1 -->
                 <div class="absolute w-full top-[10%] flex justify-around">
-                    <div v-for="(item, index) in items.slice(0, 4)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
-                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
+                    <div v-for="(item, index) in items.slice(0, 4)" :key="index"
+                        class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item"
+                            class="w-full h-full object-cover">
+                        <button @click="remove(item)"
+                            :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
                 </div>
 
                 <!-- Balda 2 -->
                 <div class="absolute w-full top-[28%] flex justify-around">
-                    <div v-for="(item, index) in items.slice(4, 8)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
-                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
+                    <div v-for="(item, index) in items.slice(4, 8)" :key="index"
+                        class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item"
+                            class="w-full h-full object-cover">
+                        <button @click="remove(item)"
+                            :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
                 </div>
 
                 <!-- Balda 3 -->
                 <div class="absolute w-full top-[45%] flex justify-around">
-                    <div v-for="(item, index) in items.slice(8, 12)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
-                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
+                    <div v-for="(item, index) in items.slice(8, 12)" :key="index"
+                        class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item"
+                            class="w-full h-full object-cover">
+                        <button @click="remove(item)"
+                            :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
                 </div>
 
                 <!-- Balda 4 -->
                 <div class="absolute w-full top-[65%] flex justify-around">
-                    <div v-for="(item, index) in items.slice(12, 16)" :key="index" class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
-                        <img @click="openData(item)" :src="item.image_url" alt="Item" class="w-full h-full object-cover">
-                        <button @click="remove(item)" :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
+                    <div v-for="(item, index) in items.slice(12, 16)" :key="index"
+                        class="w-12 h-12 bg-gray-300 rounded mb-2 relative">
+                        <img @click="openData(item)" :src="item.image_url" alt="Item"
+                            class="w-full h-full object-cover">
+                        <button @click="remove(item)"
+                            :class="`absolute right-0 translate-x-[50%] -translate-y-[50%] bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white`">X</button>
                     </div>
                 </div>
             </div>
@@ -85,39 +110,40 @@
                         <!-- Columna para Imagen o Icono -->
                         <Column header="Imagen">
                             <template #body="slotProps">
-                            <img v-if="slotProps.data.image" :src="slotProps.data.image" :alt="slotProps.data.image" class="w-6rem border-round" />
-                            <img v-else-if="slotProps.data.icon" :src="slotProps.data.icon" :alt="slotProps.data.icon" class="w-6rem border-round" />
+                                <img v-if="slotProps.data.image" :src="slotProps.data.image" :alt="slotProps.data.image"
+                                    class="w-6rem border-round" />
+                                <img v-else-if="slotProps.data.icon" :src="slotProps.data.icon"
+                                    :alt="slotProps.data.icon" class="w-6rem border-round" />
                             </template>
                         </Column>
 
                         <!-- Columnas para ID, Nombre y Descripción -->
                         <Column field="id" header="Código"></Column>
                         <Column field="name" header="Nombre"></Column>
-                        <Column field="description" header="Descripción" v-if="products.some(product => 'description' in product)"></Column>
+                        <Column field="description" header="Descripción"
+                            v-if="products.some(product => 'description' in product)"></Column>
 
                         <!-- Columna para Acciones (Botón) -->
                         <Column headerStyle="width: 5rem; text-align: center">
                             <template #body="slotProps">
-                                <Button @click="addItem(slotProps.data)"
-                                        type="button"
-                                        icon="pi pi-plus"
-                                        class="p-button-rounded p-button-success p-button-outlined custom-icon bg-purple-500 hover:bg-purple-700"
-                                        style="border-radius: 20px; color: white;" />
+                                <Button @click="addItem(slotProps.data)" type="button" icon="pi pi-plus"
+                                    class="p-button-rounded p-button-success p-button-outlined custom-icon bg-purple-500 hover:bg-purple-700"
+                                    style="border-radius: 20px; color: white;" />
                             </template>
                         </Column>
-                        </DataTable>
+                    </DataTable>
                 </div>
             </div>
         </div>
 
-        <Dialog v-model:visible="modal" modal header="Eliminar Usuario" :style="{ width: '50rem' }"
+        <Dialog v-model:visible="modal" modal header="Información Item" :style="{ width: '50rem' }"
             :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
             <template #header>
                 <div class="inline-flex align-items-center justify-content-center gap-2">
                     <span class="font-bold white-space-nowrap">Información del item: {{ item_seleccionado.name }}</span>
                 </div>
             </template>
-            
+
             <div class="flex flex-col md:flex-row">
                 <!-- Contenedor para imágenes -->
                 <div class="flex-1 p-4">
@@ -143,6 +169,25 @@
                             <strong>{{ key }}:</strong> <span>{{ JSON.stringify(value) }}</span><br>
                         </template> -->
                     </div>
+                </div>
+            </div>
+
+            <template #footer>
+            </template>
+        </Dialog>
+
+        <Dialog v-model:visible="serverStatus" modal header="Server Status" :style="{ width: '45rem' }"
+            :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+            <template #header>
+                <div class="inline-flex align-items-center justify-content-center gap-2">
+                    <span class="font-bold white-space-nowrap">Información del servidor</span>
+                </div>
+
+            </template>
+
+            <div class="flex flex-col text-purple-800">
+                <div v-for="server in serverData" :key="server.id">
+                    {{ server.status }}
                 </div>
             </div>
 
@@ -182,6 +227,8 @@ const selectedClass = ref('');
 const products = ref([]);
 const items = ref([]);
 const item_seleccionado = ref('');
+const serverStatus = ref(false);
+const serverData = ref([]);
 
 function dataUser() {
 
@@ -248,7 +295,7 @@ function addItem(slotProps) {
 
 }
 
-function remove(item){
+function remove(item) {
     appStore.setBusy();
 
     userControllerStore.remove(item).then(success => {
@@ -260,11 +307,11 @@ function remove(item){
         appStore.setIdle().then(function () {
             appStore.showAlert('error', '!Error!', error.data.message, 'Cerrar');
         });
-    }); 
+    });
 }
 
-function openData(item){
-    
+function openData(item) {
+
     appStore.setBusy();
 
     userCollectControllerStore.getItem(item).then(success => {
@@ -285,11 +332,31 @@ function openData(item){
     modal.value = !modal.value;
 }
 
+function openServerStatus() {
+
+    appStore.setBusy();
+
+    userControllerStore.serverData().then(success => {
+        appStore.setIdle().then(function () {
+
+            serverData.value = success['status'];
+            // console.log(success['status']);
+
+        });
+    }, error => {
+        appStore.setIdle().then(function () {
+            appStore.showAlert('error', '!Error!', error.data.message, 'Cerrar');
+        });
+    });
+
+    serverStatus.value = !serverStatus.value;
+}
+
 watch(selectedClass, (newValue) => {
-  if (newValue) {
-    dataItems(newValue);
-    table = true;
-  }
+    if (newValue) {
+        dataItems(newValue);
+        table = true;
+    }
 });
 
 dataUser();
