@@ -7,35 +7,38 @@ services:
       - '443:443'
     environment:
       DOMAINS: '
-        local.atlasgo.com -> http://apache-php-atlasgo:80,
-        local-backend.atlas.com -> http://apache-php-atlasgo:80
-      '
-      KEEPALIVE_TIMEOUT: 6000
-      SERVER_NAMES_HASH_MAX_SIZE: 512
-      SERVER_NAMES_HASH_BUCKET_SIZE: 32
-      CLIENT_MAX_BODY_SIZE: 0
-      PROXY_CONNECT_TIMEOUT: 6000
-      PROXY_SEND_TIMEOUT: 6000
-      PROXY_READ_TIMEOUT: 6000
+        local.eorzearm.com -> http://apache-php-eorzearm:80,
+        local-frontend.eorzearm.com -> http://apache-php-eorzearm:80'
       STAGE: 'local'
       # STAGE: 'staging'
-      # STAGE: 'production' # Don't use production until staging works
     volumes:
       - ./https-portal-data:/var/lib/https-portal
     networks:
-      - local-network
-  apache-php-atlasgo:
-    build: './apache-php-atlasgo/'
-    container_name: apache-php-atlasgo
+      - staging-network
+  mysql-container:
+    image: mysql:latest
+    container_name: mysql-container
+    networks:
+      - staging-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_ALLOW_EMPTY_PASSWORD='no'
+    ports:
+      - "3306:3306"
     volumes:
-      - ./apache-php-atlasgo/www:/var/www/html
-      - ./apache-php-atlasgo/apache/virtualhosts:/etc/apache2/sites-enabled/
+      - ./mysql/mysql-data:/var/lib/mysql
+  apache-php-eorzearm:
+    build: './apache-php-eorzearm/'
+    container_name: apache-php-eorzearm
+    volumes:
+      - ./apache-php-eorzearm/www:/var/www/html
+      - ./apache-php-eorzearm/apache/virtualhosts:/etc/apache2/sites-enabled/
+      - ./apache-php-eorzearm/apache/sites-available/default-ssl.conf:/etc/apache2/sites-available/default-ssl.conf
       - ./https-portal-data:/etc/apache2/certs/
     networks:
-      - local-network
-    command:
-      #- service supervisor start
+      - staging-network
+    command: 
       - apache2-foreground
 networks:
-  local-network:
-    external: true
+  staging-network:
+    attachable: true
